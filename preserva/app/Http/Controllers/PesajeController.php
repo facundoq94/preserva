@@ -3,9 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pesaje;
 
 class PesajeController extends Controller
 {
+
+    function __construct() {
+        $this->middleware('permission: ver-pesaje | crear-pesaje | editar-pesaje | borrar-pesaje')->only('index');
+        $this->middleware('permission: crear-pesaje', ['only' => ['create', 'store']]);
+        $this->middleware('permission: editar-pesaje', ['only' => ['edit', 'update']]);
+        $this->middleware('permission: borrar-pesaje', ['only' => ['destroy']]);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +23,8 @@ class PesajeController extends Controller
      */
     public function index()
     {
-        //
+        $pesajes = Pesaje::paginate(5);
+        return view('pesajes.index', compact('pesajes'));
     }
 
     /**
@@ -23,7 +34,7 @@ class PesajeController extends Controller
      */
     public function create()
     {
-        //
+        return view('pesajes.crear');
     }
 
     /**
@@ -34,7 +45,13 @@ class PesajeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'material' => 'required',
+            'kg' => 'required'
+        ]);
+
+        Pesaje::create($request->all());
+        return redirect()->route('pesajes.index');
     }
 
     /**
@@ -54,9 +71,9 @@ class PesajeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pesaje $pesaje)
     {
-        //
+        return view('pesajes.editar', compact('pesaje'));
     }
 
     /**
@@ -66,9 +83,15 @@ class PesajeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pesaje $pesaje)
     {
-        //
+        request()->validate([
+            'material' => 'required',
+            'kg' => 'required'
+        ]);
+
+        $pesaje->update($request->all());
+        return redirect()->route('pesajes.index');
     }
 
     /**
@@ -77,8 +100,9 @@ class PesajeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pesaje $pesaje)
     {
-        //
+        $pesaje->delete();
+        return redirect()->route('pesajes.index');
     }
 }
