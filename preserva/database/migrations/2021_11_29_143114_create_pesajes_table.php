@@ -16,7 +16,7 @@ class CreatePesajesTable extends Migration
         Schema::create('pesajes', function (Blueprint $table) {
             $table->id();
             $table->string('material');
-            $table->int('kg');
+            $table->text('kg');
             $table->timestamps();
         });
     }

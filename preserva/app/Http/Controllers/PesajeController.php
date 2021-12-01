@@ -9,7 +9,7 @@ class PesajeController extends Controller
 {
 
     function __construct() {
-        $this->middleware('permission: ver-pesaje | crear-pesaje | editar-pesaje | borrar-pesaje')->only('index');
+        $this->middleware('permission: ver-pesaje|crear-pesaje|editar-pesaje|borrar-pesaje')->only('index');
         $this->middleware('permission: crear-pesaje', ['only' => ['create', 'store']]);
         $this->middleware('permission: editar-pesaje', ['only' => ['edit', 'update']]);
         $this->middleware('permission: borrar-pesaje', ['only' => ['destroy']]);

@@ -28,6 +28,6 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RolController::class);
     Route::resource('usuarios', UsuarioController::class);
-    Route::resource('pesaje', PesajeController::class);
+    Route::resource('pesajes', PesajeController::class);
 
 });
