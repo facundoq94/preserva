@@ -28,6 +28,11 @@ class SeederTablaPermisos extends Seeder
             'crear-pesaje',
             'editar-pesaje',
             'borrar-pesaje',
+            //tabla materiales
+            'ver-material',
+            'crear-material',
+            'editar-material',
+            'borrar-material',
         ];
 
         foreach($permisos as $permiso) {
