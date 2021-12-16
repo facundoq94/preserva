@@ -29,7 +29,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="material">Material</label>
-                                   <input type="text" name="material" class="form-control">
+                                   <input type="text" name="nombre" class="form-control">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

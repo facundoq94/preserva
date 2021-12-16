@@ -47,7 +47,7 @@ class MaterialController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'material' => 'required',
+            'nombre' => 'required',
             'presentacion' => 'required',
             'precio' => 'required'
         ]);
@@ -75,7 +75,8 @@ class MaterialController extends Controller
      */
     public function edit($id)
     {
-        return view('materiales.editar', compact('materiales'));
+        $material = Material::find($id);
+        return view('materiales.editar', compact('material'));
 
     }
 
@@ -89,7 +90,7 @@ class MaterialController extends Controller
     public function update(Request $request, Material $material)
     {
         request()->validate([
-            'material' => 'required',
+            'nombre' => 'required',
             'presentacion' => 'required',
             'precio' => 'required'
         ]);

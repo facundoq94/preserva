@@ -27,7 +27,7 @@
                             @foreach ($materiales as $material)
                             <tr>
                                 <td style="display: none;">{{ $material->id }}</td>                                
-                                <td>{{ $material->material }}</td>
+                                <td>{{ $material->nombre }}</td>
                                 <td>{{ $material->presentacion }}</td>
                                 <td>{{ $material->precio }}</td>
 

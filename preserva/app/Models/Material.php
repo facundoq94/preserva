@@ -9,6 +9,6 @@ class Material extends Model
 {
     protected $table = 'materiales';
     use HasFactory;
-    protected $fillable = ['material', 'presentacion', 'precio'];
+    protected $fillable = ['nombre', 'presentacion', 'precio'];
 
 }

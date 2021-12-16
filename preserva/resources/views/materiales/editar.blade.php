@@ -31,7 +31,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="material">Material</label>
-                                   <input type="text" name="material" class="form-control" value="{{ $material->material }}">
+                                   <input type="text" name="material" class="form-control" value="{{ $material->nombre }}">
                                 </div>
                             </div>
 
