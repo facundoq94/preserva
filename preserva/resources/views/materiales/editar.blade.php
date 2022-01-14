@@ -31,7 +31,25 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                    <label for="material">Material</label>
-                                   <input type="text" name="material" class="form-control" value="{{ $material->nombre }}">
+                                   <input type="text" name="nombre" class="form-control" value="{{ $material->nombre }}">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                   <label for="presentacion">Presentacion</label>
+                                   <select name="presentacion">
+                                    <option value="{{ $material->presentacion }}" selected>{{ $material->presentacion }}</option>
+
+                                    <option value="granel">Granel</option>
+                                    <option value="prensado">Prensado</option>
+                                  </select>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                   <label for="material">Precio</label>
+                                   <input type="text" name="precio" class="form-control" value="{{ $material->precio }}">
                                 </div>
                             </div>
 

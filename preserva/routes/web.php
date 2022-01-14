@@ -26,9 +26,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::resource('roles', RolController::class);
+    Route::resource('roles', 'App\Http\Controllers\RolController');
     Route::resource('usuarios', UsuarioController::class);
     Route::resource('pesajes', PesajeController::class);
-    Route::resource('materiales', MaterialController::class);
+    Route::resource('materiales', 'App\Http\Controllers\MaterialController');
 
 });

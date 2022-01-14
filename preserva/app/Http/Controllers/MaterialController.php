@@ -87,7 +87,7 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Material $material)
+    public function update(Request $request, Material $material, $id)
     {
         request()->validate([
             'nombre' => 'required',
@@ -95,7 +95,10 @@ class MaterialController extends Controller
             'precio' => 'required'
         ]);
 
-        $material->update($request->all());
+        $input = $request->all();
+        $mat = Material::find($id);
+
+        $mat->update($input);
         return redirect()->route('materiales.index');
     }
 
